@@ -1,15 +1,17 @@
+const calculatorScreen = document.querySelector('.calculator-screen')
+const updateScreen = (number) => {
+    calculatorScreen.value = number
+}
+
 const numbers = document.querySelectorAll(".number")
 numbers.forEach((number) => {
     number.addEventListener("click", (event) => {
-        console.log(event.target.value)
+        inputNumber(event.target.value)
         updateScreen(currentNumber)
     })
 
 })
-const calculatorScreen = document.querySelector(".calculator-screen")
-const updateScreen = (number) =>{
-    calculatorScreen.value = number
-}
+
 let prevNumber = ''
 let calculationOperator = ''
 let currentNumber = '0'
@@ -24,13 +26,13 @@ const inputNumber =(number) => {
 
 const operators = document.querySelectorAll(".operator")
 operators.forEach((operator) => {
-    operator.addEventListener("click", (event) => {
-        console.log(event.target.value)
+    operator.addEventListener('click', (event) => {
+        inputOperator(event.target.value)
     })
 })
 
 const inputOperator = (operator) => {
-    if(calculatorOperator === ''){
+    if(calculationOperator === ''){
         prevNumber = currentNumber
     }
     
